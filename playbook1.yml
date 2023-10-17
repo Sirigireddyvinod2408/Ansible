@@ -1,0 +1,13 @@
+---
+- name: create a user in all hosts
+  hosts: all
+  tasks:
+    - name: user creation
+      user:
+        name: newuser
+        password: vinod
+        uid: 1223
+        home: /home/newuser
+        comment: "A Regular User"
+        shell: /bin/bash
+...
