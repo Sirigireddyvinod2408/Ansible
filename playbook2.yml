@@ -9,10 +9,5 @@
         owner: vinod1
         group: vinod
         mode: 777
-    - name:
-      copy:
-        content: "Welcome to Kadapa"
-        dest: /tmp/navya
-
 ...
 
