@@ -1,17 +1,17 @@
 ---
 - name: fetch the file from remote server to controller
-  hosts: 172.31.43.42 
+  hosts: Firstfile
   tasks:
     - name: fetch file
       fetch:
         src: file9964
         dest: /tmp
 - name: copy file from controller to remote server
-  hosts: newgroup
+  hosts: Newgroup
   tasks:
     - name: copy file
       copy:
-        src: /tmp/file9964
+        src: /tmp/172.31.43.42/file9964
         dest: /tmp
 
 ...
