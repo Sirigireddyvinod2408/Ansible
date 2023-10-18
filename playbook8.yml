@@ -1,0 +1,11 @@
+---
+- name: change permission to file on all servers
+  hosts: all
+  tasks:
+    - name: change permissions
+      copy:
+        content: "welcome to Kadapa"
+        mode: "770"
+        dest: /tmp/samplefile1
+
+...

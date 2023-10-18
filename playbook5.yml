@@ -1,0 +1,21 @@
+---
+- name: creating file
+  hosts: all
+  tasks:
+    - name: creating file
+      file:
+        name: /tmp/samplefile
+        state: touch
+        owner: vijay
+        group: vijay
+        mode: "777"
+    - name: creating directory in all servers
+      file:
+        name: /tmp/sathvik
+        state: directory
+        owner: sathvik
+        group: sathvik
+        mode: "777"
+
+...
+

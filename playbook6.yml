@@ -1,0 +1,13 @@
+---
+- name: copy files to all servers
+  hosts: all
+  tasks:
+    - name: copy file
+      copy:
+        src: /home/ubuntu/samplefile1
+        dest: /tmp
+        mode: "777"
+
+...
+
+

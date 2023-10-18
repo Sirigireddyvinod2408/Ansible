@@ -1,0 +1,29 @@
+---
+- name: Configuring apache2
+  hosts: all
+  tasks:
+    - name: Install apache2
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+    - name: Edit the index.html file
+      copy:
+        content: "Welcome to Kadapa official site"
+        dest: /var/www/html/index.html
+    - name: restart apache2
+      service:
+        name: apache2
+        state: restarted
+    - name:
+      pause:
+        seconds: 30
+    - name: check apache response on server1
+      uri:
+        url: http://172.31.43.42
+        status_code: 200
+    - name: check apache response on server2
+      uri:
+        url: http://172.31.37.18
+        status_code: 200
+...

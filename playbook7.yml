@@ -1,0 +1,14 @@
+---
+- name: create directory on all servers
+  hosts: all
+  tasks:
+    - name: create directory
+      file:
+        name: /tmp/sathvik22
+        state: directory
+        owner: vinod
+        group: vinod
+        mode: "777"
+
+...
+
