@@ -1,0 +1,16 @@
+---
+- name: Implementing play scope variables
+  hosts: all
+  vars:
+    - a: tomcat9
+    - b: present
+    - c: yes
+  tasks:
+    - name: Install/uninstall
+      apt:
+         name: "{{a}}"
+         state: "{{b}}"
+         update_cache: "{{c}}"
+...
+
+

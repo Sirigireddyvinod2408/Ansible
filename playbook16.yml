@@ -1,0 +1,40 @@
+---
+- name: Implementing Play scope variabls
+  hosts: all
+  vars:
+    - a: tomcat9
+    - b: present
+    - c: yes
+  tasks:
+    - name: install/uninstall
+      apt:
+        name: "{{a}}"
+        state: "{{b}}"
+        update_cache: "{{c}}"
+    - name: copy tomcat-users.xml file
+      copy:
+        src: tomcat-users.xml
+        dest: /etc/ "{{a}}"
+    - name: replace port number 7070 to 8080
+      replace:
+        regexp: 7070
+        replace: 8080
+        path: /etc/tomcat9/server.xml
+    - name: restart tomcat service
+      service:
+        name: "{{a}}"
+        state: restarted
+    - name: pause 30 seconds
+      pause:
+        seconds: 30
+
+    - name: check tomcat response on server1
+      uri:
+        url: http://172.31.43.42:8080
+        status_code: 200
+    - name: check tomcat response on server2
+      uri:
+        url: http://172.31.37.18:8080
+        status_code: 200
+
+...

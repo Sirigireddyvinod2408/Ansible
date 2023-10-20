@@ -1,0 +1,19 @@
+---
+- name: Implementing Play scope variables
+  hosts: all
+  vars:
+    a: raj
+    b: raj
+    c: /home/raj
+    d: /bin/bash
+    e: "A Normal user"
+  tasks:
+    - name: creating user
+      user:
+        name: "{{a}}"
+        password: "{{b}}"
+        home: "{{c}}"
+        shell: "{{d}}"
+        comment: "{{e}}"
+
+...
